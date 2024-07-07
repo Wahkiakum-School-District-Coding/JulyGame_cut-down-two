@@ -1,0 +1,10 @@
+res://common/play_game_parameters.tscn
+res://common/power_node.gd
+res://common/power_node.tscn
+res://common/play_game_parameters.gd
+res://common/rocket.tscn
+res://common/rocket.gd
+res://common/global_variables.gd
+res://mountains.tscn
+res://terrain2/height.res
+res://terrain2/data.hterrain

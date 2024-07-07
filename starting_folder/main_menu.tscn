@@ -1,0 +1,104 @@
+[gd_scene load_steps=5 format=3 uid="uid://dntqp66lwbjwf"]
+
+[ext_resource type="Script" path="res://starting_folder/main_menu.gd" id="1_3xn34"]
+[ext_resource type="Texture2D" uid="uid://cxtjebi8nw6s7" path="res://starting_folder/orion.PNG" id="2_3alyj"]
+[ext_resource type="Texture2D" uid="uid://bia5f1en4lg0f" path="res://starting_folder/pulse rocket cover.png" id="3_x22jc"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_68th8"]
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 33.0
+offset_top = 18.0
+offset_right = 33.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3xn34")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_top = 70.0
+offset_right = 206.0
+offset_bottom = 356.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="help" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Help"
+
+[node name="menu_options" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = " Options"
+
+[node name="Run Agent" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Run Agent"
+
+[node name="play_menu" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+text = "Play Game"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit Game"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 234.0
+offset_top = 11.0
+offset_right = 972.0
+offset_bottom = 611.0
+texture = ExtResource("2_3alyj")
+
+[node name="PulseRocketCover" type="Sprite2D" parent="."]
+position = Vector2(662, 369)
+texture = ExtResource("3_x22jc")
+
+[node name="Draft_number" type="Label" parent="."]
+top_level = true
+material = SubResource("CanvasItemMaterial_68th8")
+layout_mode = 0
+offset_left = 412.0
+offset_top = 135.0
+offset_right = 527.0
+offset_bottom = 210.0
+tooltip_text = "update:
+draft #0.02
+6/8/2024
+w7eryron"
+mouse_filter = 1
+theme_override_colors/font_color = Color(0.840147, 0.512588, 0.925764, 1)
+text = "    "
+
+[node name="tank" type="LinkButton" parent="."]
+layout_mode = 2
+offset_left = 4.0
+offset_top = 340.0
+offset_right = 210.0
+offset_bottom = 363.0
+tooltip_text = "YouTube short video clip from the A-Team movie to help explain the tank in  this game ... "
+text = "Inspiration - Tank"
+uri = "https://www.youtube.com/watch?v=EK2eV6KEgko"
+
+[node name="orion" type="LinkButton" parent="."]
+layout_mode = 2
+offset_left = 6.0
+offset_top = 308.0
+offset_right = 212.0
+offset_bottom = 331.0
+tooltip_text = "YouTube short video clip of an actual Orion test flight. "
+text = "Inspiration - Orion"
+uri = "https://www.youtube.com/watch?v=CRnYe1yXUFQ"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/menu_options" to="." method="_on_menu_options_operating_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/menu_options" to="." method="_on_menu_options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/play_menu" to="." method="_on_play_menu_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
