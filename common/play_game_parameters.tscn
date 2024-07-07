@@ -85,7 +85,7 @@ skeleton = NodePath("../..")
 shape = SubResource("BoxShape3D_vx3wf")
 
 [node name="landing_zone" parent="." instance=ExtResource("5_mjs82")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 100)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000499725, 100)
 collision_layer = 33
 collision_mask = 33
 

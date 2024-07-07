@@ -11,6 +11,7 @@ var launch_site = Global.launch_site
 var rocket_position = Global.rocket_position
 var rocket_speed = Global.rocket_velocity
 var turret_can_fire = Global.turret_fire
+var flying = 1.0
 
 @onready var twist_pivot := $TwistPvot
 @onready var pitch_pivot = $TwistPvot/PitchPivot
@@ -63,6 +64,7 @@ func _process(delta):
 		else:
 			explode()
 			apply_central_force(Vector3.UP * 80.0  * 20)
+			flying = .6
 		#await get_tree().create_timer(1.95).timeout
 		Global.flying = true
 	
@@ -99,7 +101,7 @@ func _process(delta):
 	var input = Vector3.ZERO
 	input.x = Input.get_axis("roll_left", "roll_right")		#variable names are messed up, l/r & f/b
 	input.z = Input.get_axis("pitch_down", "pitch_up")
-	apply_central_force(basis* input*1200.0 * delta)
+	apply_central_force(basis* input*1000.0 * flying * delta)
 	
 	# handling camera pitch and roll
 	twist_pivot.rotate_y(twist_input)

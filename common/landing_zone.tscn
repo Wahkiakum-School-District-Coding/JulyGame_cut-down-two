@@ -13,9 +13,10 @@ size = Vector3(4, 0.5, 4)
 [node name="landing_zone" type="StaticBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+transform = Transform3D(1.90574, 0, 0, 0, 1, 0, 0, 0, 1.65269, 0, -0.03369, 0)
 layers = 257
 mesh = SubResource("BoxMesh_evd7e")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2.50382, 0, 0, 0, 1.00153, 0, 0, 0, 2.50382, 0, 0, 0)
 shape = SubResource("BoxShape3D_onn6l")

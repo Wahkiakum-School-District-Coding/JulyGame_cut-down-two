@@ -1,7 +1,7 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1720315525
+::res://::1720317185
 mountains.tscn::PackedScene::2212467244762009523::1720315525::0::1::::<><>::res://addons/zylann.hterrain/hterrain.gd<>res://terrain2/data.hterrain<>res://addons/zylann.hterrain/hterrain_texture_set.gd
-README.md::TextFile::-1::1718980710::0::1::::<><>::
+README.md::TextFile::-1::1720316243::0::1::::<><>::
 ::res://addons/::1720277356
 ::res://addons/zylann.hterrain/::1720277292
 hterrain.gd::GDScript::-1::1719024489::0::1::::<>Node3D<>::
@@ -208,14 +208,7 @@ util.gd::GDScript::-1::1719024493::0::1::::<>RefCounted<>::
 xyz_format.gd::GDScript::-1::1719024493::0::1::::<>RefCounted<>::
 ::res://agents/::1720277372
 ::res://agents/team_agent/::1717767718
-::res://assets/::1720277292
-texture.png::CompressedTexture2D::5777957313156871048::1718197648::1718295467::1::::<><>::
-::res://assets/dae/::1720277293
-course_parts1.dae::PackedScene::6353534714672115782::1718197648::1718295468::1::::<><>::uid://cok5d3muyrc8w::::res://assets/texture.png
-course_parts.dae::PackedScene::8018540426299714554::1718197648::1718295468::1::::<><>::uid://cok5d3muyrc8w::::res://assets/texture.png
-course_test.dae::PackedScene::710072815808670910::1718197648::1718295468::1::::<><>::uid://cok5d3muyrc8w::::res://assets/texture.png
-golf.material::StandardMaterial3D::-1::1718197648::0::1::::<><>::res://assets/texture.png
-golf_windmill.dae::PackedScene::5637542335507419180::1718197648::1718295468::1::::<><>::uid://cok5d3muyrc8w::::res://assets/texture.png
+::res://assets/::1720316319
 ::res://common/::1720315305
 crashed.gd::GDScript::-1::1718340490::0::1::::<>Node3D<>::
 crashed.tscn::PackedScene::4672000945737872686::1719877906::0::1::::<><>::res://common/crashed.gd<>uid://3yv0615jxmbn::::res://common/explosion.tscn
@@ -244,7 +237,7 @@ options_operating.gd::GDScript::-1::1718810220::0::1::::<>Control<>::
 options_operating.tscn::PackedScene::474380510670858223::1719032596::0::1::::<><>::res://starting_folder/options_operating.gd
 orion.PNG::CompressedTexture2D::6426961610898028448::1715058876::1715059313::1::::<><>::
 pulse rocket cover.png::CompressedTexture2D::2949763243966054327::1715194556::1717767054::1::::<><>::
-::res://terrain2/::1720315508
+::res://terrain2/::1720315822
 color.png::CompressedTexture2D::142881288834943611::1720280394::1720280452::1::::<><>::
 data.hterrain::Resource::-1::1720315508::0::1::::<><>::
 height.res::Image::1507906789021574158::1720315508::0::1::::<><>::

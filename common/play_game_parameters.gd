@@ -27,7 +27,7 @@ func _on_rocket_body_entered(body):
 	if(Global.flying):
 		print("flying and hit something")
 		
-		if(abs($rocket.rocket_position.x - $rocket.landing_site.x) <= 1.0 && abs($rocket.rocket_position.z - $rocket.landing_site.z) <= 1.0 && $rocket.rocket_speed.y <= SAFE_LANDING_SPEED ):
+		if(abs($rocket.rocket_position.x - $rocket.landing_site.x) <= 5.0 && abs($rocket.rocket_position.z - $rocket.landing_site.z) <= 5.0 && $rocket.rocket_speed.y <= SAFE_LANDING_SPEED ):
 			print("landed safely")
 			get_tree().change_scene_to_file("res://common/safe_landing.tscn")
 		else: 
