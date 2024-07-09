@@ -1,3 +1,9 @@
+Label
+Button
+VBoxContainer
+MarginContainer
+Control
+Node
 MeshInstance3D
 RigidBody3D
 CollisionShape3D
@@ -6,9 +12,3 @@ StaticBody3D
 Node3D
 LineEdit
 TextEdit
-Label
-AcceptDialog
-Control
-Camera3D
-WorldEnvironment
-Area3D

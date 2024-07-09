@@ -22,6 +22,6 @@ func _on_body_entered(body):
 func regen_power_node():
 	while Global.power_node_gen:
 		Global.power_node_gen = false
-		Global.power_node_position = Vector3(randi_range(-30, 30), 3, randi_range(-30, 30))
+		Global.power_node_position = Vector3(randi_range(-25, 25), 3, randi_range(-30, 30))
 		power_node.position = Global.power_node_position 
 	Global.power_node_gen = true

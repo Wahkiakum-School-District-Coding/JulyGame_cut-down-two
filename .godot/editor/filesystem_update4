@@ -1,4 +1,14 @@
-res://common/play_game_parameters.gd
+res://starting_folder/main_menu.tscn
 res://common/rocket.gd
-res://common/landing_zone.tscn
+res://common/play_game_parameters.gd
+res://common/global_variables.gd
+res://common/rocket.tscn
+res://function_agent.gd
+res://starting_folder/main_menu.gd
+res://agents/function_agent.tscn
+res://starting_folder/options_operating.tscn
 res://common/play_game_parameters.tscn
+res://agents/function_agent.gd
+res://common/power_node.tscn
+res://common/power_node.gd
+res://starting_folder/help.tscn

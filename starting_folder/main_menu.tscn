@@ -40,6 +40,10 @@ text = " Options"
 layout_mode = 2
 text = "Run Agent"
 
+[node name="Run Function Agent" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Run Function Agent"
+
 [node name="play_menu" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 action_mode = 0
@@ -100,5 +104,6 @@ uri = "https://www.youtube.com/watch?v=CRnYe1yXUFQ"
 [connection signal="pressed" from="MarginContainer/VBoxContainer/help" to="." method="_on_help_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/menu_options" to="." method="_on_menu_options_operating_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/menu_options" to="." method="_on_menu_options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Run Function Agent" to="." method="_on_run_function_agent_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/play_menu" to="." method="_on_play_menu_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

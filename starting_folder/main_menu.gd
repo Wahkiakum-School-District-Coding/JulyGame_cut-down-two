@@ -17,3 +17,6 @@ func _on_play_menu_pressed():
 
 func _on_help_pressed():
 	get_tree().change_scene_to_file("res://starting_folder/help.tscn")
+
+func _on_run_function_agent_pressed():
+	get_tree().change_scene_to_file("res://agents/function_agent.tscn")

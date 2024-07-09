@@ -3,7 +3,7 @@ extends Node3D
 @onready var twist_pivot := $TwistPivot
 @onready var pitch_pivot = $TwistPivot/PitchPivot 
 
-var SAFE_LANDING_SPEED = 50
+var SAFE_LANDING_SPEED = -20
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,6 +11,7 @@ func _ready():
 	$landing_zone.position = Global.landing_site
 	Global.bombs = 30
 	$powerNode.position = Vector3(6,2,7)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -24,13 +25,13 @@ func _process(delta):
 # rocket landing where it shouldn't 
 func _on_rocket_body_entered(body):
 	#print("hit something")
-	if(Global.flying):
+	if(Global.flying_boolean):
 		print("flying and hit something")
 		
-		if(abs($rocket.rocket_position.x - $rocket.landing_site.x) <= 5.0 && abs($rocket.rocket_position.z - $rocket.landing_site.z) <= 5.0 && $rocket.rocket_speed.y <= SAFE_LANDING_SPEED ):
+		if(abs($rocket.rocket_position.x - $rocket.landing_site.x) <= 20.0 && abs($rocket.rocket_position.z - $rocket.landing_site.z) <= 20.0 && $rocket.rocket_speed.y > SAFE_LANDING_SPEED ):
 			print("landed safely")
 			get_tree().change_scene_to_file("res://common/safe_landing.tscn")
 		else: 
-			Global.flying = false
+			Global.flying_boolean = false
 			$rocket.kablooey()
 

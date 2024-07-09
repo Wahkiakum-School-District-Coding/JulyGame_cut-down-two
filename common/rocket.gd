@@ -13,6 +13,9 @@ var rocket_speed = Global.rocket_velocity
 var turret_can_fire = Global.turret_fire
 var flying = 1.0
 
+var start_time = Time.get_ticks_msec()
+var current_time = 0
+
 @onready var twist_pivot := $TwistPvot
 @onready var pitch_pivot = $TwistPvot/PitchPivot
 
@@ -26,10 +29,21 @@ var flying = 1.0
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$Feelers.disabled = true
-	Global.flying = false
-
+	Global.flying_boolean = false
 	
-	await get_tree().create_timer(3.0).timeout
+	if (Global.function_agent_boolean == true):
+		print("got to the function agent one ... whoo hoo ")
+		function_agent_one()
+		#Global.function_agent_boolean == false
+	Global.function_agent_boolean == false
+	
+	#await get_tree().create_timer(3.0).timeout
+	
+	#var send_event = InputEventAction.new()
+	#send_event.action = "fire"
+	#send_event.pressed = true
+	#Input.parse_input_event(send_event)
+	
 	# below is just a sample autonomous mode launch
 	#explode()
 	#apply_central_force(Vector3.UP * 80.0  * bombTime)
@@ -39,6 +53,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
 	
 	check_input()	# checking for rotating the tank turret
 	#check_kablooey()
@@ -58,15 +73,8 @@ func _process(delta):
 		Global.flying = !Global.flying
 	
 	if (Input.is_action_just_pressed("rocket_launch")):
-		print("l key pressed")
-		if(abs(rocket_position.x) >=1 || abs(rocket_position.z) >= 1):
-			kablooey()
-		else:
-			explode()
-			apply_central_force(Vector3.UP * 80.0  * 20)
-			flying = .6
-		#await get_tree().create_timer(1.95).timeout
-		Global.flying = true
+		launch_rocket()
+		
 	
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -82,22 +90,12 @@ func _process(delta):
 	$land_location.text = str(round(Global.landing_site))
 	$my_bombs.text = str(round(Global.bombs))
 	$power_node_location.text = str(round(Global.power_node_position))
-	
-	#if(rocket_position.distance_to(Global.landing_site)<=1.0):
-		#await get_tree().create_timer(1.0).timeout
-		#get_tree().change_scene_to_file("res://common/safe_landing.tscn")
-	
-	#if(rocket_position.y < 0):
-		#kablooey()
+	current_time = (Time.get_ticks_msec() - start_time)/1000
+	$elapsed_time.text = str(round(current_time))
+	print(current_time)
+	print(Global.bombs)
 		
-	 #handling height of tank when turret can fire
-	#if turret_can_fire:
-		#if rocket_position.y > 2:
-			#explode()
-		#else:
-			#kablooey()
-		
-	# handling tank fwd/back and lef/right
+	# handling tank fwd/back and left/right
 	var input = Vector3.ZERO
 	input.x = Input.get_axis("roll_left", "roll_right")		#variable names are messed up, l/r & f/b
 	input.z = Input.get_axis("pitch_down", "pitch_up")
@@ -111,20 +109,20 @@ func _process(delta):
 	twist_input = 0.0
 	pitch_input = 0.0
 
-func	explode():
+func explode():
 	fire.emitting = true
 	$Fire3.emitting = true
 	kaboom_1.play(true)
 	smoke.emitting = true
 	Global.bombs -=  1
-	if (Global.bombs <= 0):
-		kablooey()
+	#if (Global.bombs <= 0):
+		#kablooey()
 	return true
 	
 func kablooey():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().change_scene_to_file("res://common/crashed.tscn")
-	
+
 # handling movemenet of mouse camera 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -143,3 +141,91 @@ func check_input():
 func check_kablooey():
 	if (position.y < 2 && explode()):
 		kablooey()
+
+func send_action():
+	var send_event = InputEventAction.new()
+	send_event.action = "pitch_down"
+	send_event.pressed = true
+	Input.parse_input_event(send_event)
+	send_event = false
+
+func function_agent_one(): 
+	await get_tree().create_timer(3.0).timeout
+	
+	
+	while(Global.bombs <120):
+		if  (Global.power_node_position.z <= rocket_position.z ):
+			apply_central_force(Vector3.FORWARD * 200 )
+			await get_tree().create_timer(0.1).timeout
+		if  (Global.power_node_position.x <= rocket_position.x ):
+			apply_central_force(Vector3.LEFT * 200 )
+			await get_tree().create_timer(0.1).timeout
+		if  (Global.power_node_position.z > rocket_position.z ):
+			apply_central_force(Vector3.BACK * 200 )
+			await get_tree().create_timer(0.1).timeout
+		if  (Global.power_node_position.x > rocket_position.x ):
+			apply_central_force(Vector3.RIGHT * 200 )
+			await get_tree().create_timer(0.1).timeout
+	while(abs(rocket_position.x) > .5 || abs(rocket_position.z) > .5):
+		if  (0 <= rocket_position.z ):
+			apply_central_force(Vector3.FORWARD * 200 )
+			await get_tree().create_timer(0.1).timeout
+		if  (0 <= rocket_position.x ):
+			apply_central_force(Vector3.LEFT * 200 )
+			await get_tree().create_timer(0.1).timeout
+		if  (0 > rocket_position.z ):
+			apply_central_force(Vector3.BACK * 200 )
+			await get_tree().create_timer(0.1).timeout
+		if  (0 > rocket_position.x ):
+			apply_central_force(Vector3.RIGHT * 200 )
+			await get_tree().create_timer(0.1).timeout
+	#await get_tree().create_timer(2.0).timeout
+	rocket_speed = Vector3.ZERO
+	await get_tree().create_timer(2.0).timeout
+	launch_rocket()
+	await get_tree().create_timer(3.0).timeout
+	fly_to_landing_site()
+	
+func launch_rocket():
+	print("rocket launched")
+	#print("l key pressed")
+	#if(abs(rocket_position.x) >=3 && abs(rocket_position.z) >= 3):
+		#kablooey()
+	#else:
+	explode()
+	apply_central_force(Vector3.UP * 3500)
+	Global.flying_boolean = true
+		#await get_tree().create_timer(1.0).timeout
+	
+
+func fly_to_landing_site():
+	print("rocket flying, good luck !! ")
+
+	while(Global.bombs > 0 && (abs(Global.landing_site.x-rocket_position.x) > 2 || abs(Global.landing_site.z - rocket_position.z) > 2)):
+		if (rocket_position.y < Global.mountainHeight):
+			explode()
+			apply_central_force(Vector3.UP * 1100)
+			await get_tree().create_timer(1.0).timeout
+		if  (Global.landing_site.z <= rocket_position.z ):
+			apply_central_force(Vector3.FORWARD * 50 )
+			await get_tree().create_timer(0.1).timeout
+		if  (Global.landing_site.x  <= rocket_position.x ):
+			apply_central_force(Vector3.LEFT * 50 )
+			await get_tree().create_timer(0.1).timeout
+		if  (Global.landing_site.z  > rocket_position.z ):
+			apply_central_force(Vector3.BACK * 50 )
+			await get_tree().create_timer(0.1).timeout
+		if  (Global.landing_site.x  > rocket_position.x ):
+			apply_central_force(Vector3.RIGHT * 50 )
+			await get_tree().create_timer(0.1).timeout
+	print("hovering over the landing site")
+	if(Global.bombs <1):
+		kablooey()
+		print("out of bombs")
+	while (rocket_position.y >5 ):
+		print("landing now, hopefully safely")
+		if (rocket_speed.y < -10):
+			explode()
+			apply_central_force(Vector3.UP * 800)
+		await get_tree().create_timer(0.1).timeout
+		
