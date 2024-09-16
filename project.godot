@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="PulseTransport3cutDown"
+config/name="PulseTransport3sankecopy"
+config/description="This is the first part of the full game. Done to make a simpler example for SciOly. "
 run/main_scene="res://starting_folder/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://starting_folder/icon.svg"

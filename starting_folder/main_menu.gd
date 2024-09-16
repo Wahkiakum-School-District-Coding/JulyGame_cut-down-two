@@ -5,9 +5,8 @@ func _ready():
 	#print(Global.waitTime)
 	#print(Global.bombChoice)
 	print("hello from teh main menu")
-	
-func _on_menu_options_pressed():
-	get_tree().change_scene_to_file("res://starting_folder/options_operating.tscn")
+	Global.function_agent_boolean = false
+
 
 func _on_quit_pressed():
 	get_tree().quit()
@@ -20,3 +19,7 @@ func _on_help_pressed():
 
 func _on_run_function_agent_pressed():
 	get_tree().change_scene_to_file("res://agents/function_agent.tscn")
+
+
+func _on_run_agent_pressed():
+	get_tree().change_scene_to_file("res://agents/team_agent/RML_agent_run.tscn")

@@ -239,27 +239,11 @@ offset_bottom = 385.975
 theme_override_colors/font_color = Color(0.6, 0, 0, 1)
 text = "Tank location (x,y,z) "
 
-[node name="distL_label" type="Label" parent="."]
-offset_left = 80.0
-offset_top = 276.975
-offset_right = 233.0
-offset_bottom = 299.975
-theme_override_colors/font_color = Color(0.6, 0, 0, 1)
-text = "Distance to landing "
-
-[node name="land_loc_label" type="Label" parent="."]
-offset_left = 81.0
-offset_top = 317.975
-offset_right = 234.0
-offset_bottom = 340.975
-theme_override_colors/font_color = Color(0.6, 0, 0, 1)
-text = "Landing location "
-
 [node name="power_node_loc" type="Label" parent="."]
-offset_left = 79.0
-offset_top = 242.0
-offset_right = 232.0
-offset_bottom = 265.0
+offset_left = 80.0
+offset_top = 318.0
+offset_right = 233.0
+offset_bottom = 341.0
 theme_override_colors/font_color = Color(0.6, 0, 0, 1)
 text = "Power Node Loc"
 
@@ -269,7 +253,7 @@ offset_top = 508.0
 offset_right = 237.0
 offset_bottom = 531.0
 theme_override_colors/font_color = Color(0.6, 0, 0, 1)
-text = "Bombs remaining"
+text = "Daisey points"
 
 [node name="time_label" type="Label" parent="."]
 offset_left = 86.0
@@ -310,31 +294,11 @@ scale = Vector2(1.88045, 2.65341)
 theme_override_colors/font_color = Color(0.796078, 0, 0, 1)
 text = "0"
 
-[node name="my_distL" type="Label" parent="."]
-offset_left = 240.0
-offset_top = 258.975
-offset_right = 280.0
-offset_bottom = 281.975
-rotation = -0.0129563
-scale = Vector2(1.88045, 2.65341)
-theme_override_colors/font_color = Color(0.796078, 0, 0, 1)
-text = "0"
-
-[node name="land_location" type="Label" parent="."]
-offset_left = 239.0
-offset_top = 300.975
-offset_right = 279.0
-offset_bottom = 323.975
-rotation = -0.0129563
-scale = Vector2(1.88045, 2.65341)
-theme_override_colors/font_color = Color(0.796078, 0, 0, 1)
-text = "0"
-
 [node name="power_node_location" type="Label" parent="."]
-offset_left = 239.0
-offset_top = 222.0
-offset_right = 279.0
-offset_bottom = 245.0
+offset_left = 244.0
+offset_top = 300.0
+offset_right = 284.0
+offset_bottom = 323.0
 rotation = -0.0129563
 scale = Vector2(1.88045, 2.65341)
 theme_override_colors/font_color = Color(0.796078, 0, 0, 1)

@@ -1,1 +1,4 @@
 res://common/play_game_parameters.tscn
+res://agents/function_agent.tscn
+res://common/rocket.tscn
+res://starting_folder/main_menu.tscn

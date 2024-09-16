@@ -7,16 +7,17 @@ position = Vector2(0, 2)
 script = ExtResource("1_vch1m")
 
 [node name="goal" type="Label" parent="."]
-offset_left = 447.0
-offset_top = 7.0
-offset_right = 714.0
-offset_bottom = 132.0
+offset_left = 32.0
+offset_top = 248.0
+offset_right = 299.0
+offset_bottom = 453.0
 size_flags_horizontal = 0
-text = "Goal for Task #1:
-Drive the tank through the field collecting power daiseys.  When you have enough,  drive  to the launch area. Drive onto the launch pad before engaging the pulse rocket, otherwise, you will kaboom. 
+text = "Goal for This Task :
+Drive the tank through the field collecting power daiseys. You have 30 seconds to get as many as you can.  Once 30 seconds are up you have 5 seconds to park back onto the starting area. 
 
-Goal for Task #2
-Launch the pulse rocket tank, \"fly\" to the landing site,  and land safely in the landing zone. Don't fire the tank's gun until you are at least 5m above the ground, otherwise, you will kaboom."
+Note that this is the first half of the full tank game. 
+
+"
 autowrap_mode = 2
 
 [node name="Back" type="Button" parent="."]
@@ -26,60 +27,39 @@ offset_right = 882.0
 offset_bottom = 627.0
 text = "Return to Main Menu"
 
-[node name="Save and Load" type="Label" parent="."]
-offset_left = 446.0
-offset_top = 448.0
-offset_right = 716.0
-offset_bottom = 577.0
-text = "Save and Load:
-Go to the main screen and click on \"Import your Agent\" to load a different Agent from the list. 
-NOT YET IMPLEMENTED"
-autowrap_mode = 2
-
 [node name="movement" type="Label" parent="."]
-offset_left = 736.0
-offset_top = 8.0
-offset_right = 1135.0
-offset_bottom = 369.0
+offset_left = 463.0
+offset_top = 10.0
+offset_right = 757.0
+offset_bottom = 371.0
 size_flags_horizontal = 0
 text = "Movement  keys:
-l  = launch the tank, no going back !!
-w = fire aft  cannon, go forward
-s = fire forward cannon, go aft
-a = fire starboard cannon, go to port
-d = fire port canon, go starboard
-< = turn turret to part
-> = turn turret to starboard
-u = drop small bomb
-i = drop medium bomb
-o = drop large bomb
+w = go forward
+s = go aft
+a = go  port
+d = go starboard
+< = turn turret counterclockwise
+> = turn turret clockwise
 m = wait 1  second
 p = return to main screen
 "
 autowrap_mode = 2
 
 [node name="story" type="RichTextLabel" parent="."]
-offset_left = 12.0
-offset_top = 4.0
-offset_right = 431.0
-offset_bottom = 635.0
+offset_left = 28.0
+offset_top = 31.0
+offset_right = 447.0
+offset_bottom = 245.0
 text = "Story:
-An incredible new source of power has been discovered that is not radioactive.  Its byproducts are not  harmful to the environment. You are the driver of our pulse rocket tank carrying goods and passengers from the launch site to a  landing site. The launch site is always in the same location, however, the landing site changes depending on which outpost you are supporting on the current mission.  You must first collect power daseys in the field, then move to the launch site. Then, you must fly high enough to avoid the mountains.  Your navigation computer builds an optimized flight path to get there the fastest, with the least amount of bombs used. Additional factors that affect optimization are wind sheer, and, acceleration due to gravity and air density on the planet you are operating on.  Your tank  must land  at a speed less than 10m/s otherwise it crashes and burns.  Landing anywhere other than a landing site also causes your tank to crash and burn.  Thus, you should use your Agent to determine an optimized flight path to follow. The best Agents earn the highest rewards, so develop an Agent that works well in all environments. Be aware that the shortest horizontal path is often not the optimized path due to variation in mountain terrain.  Good Luck. "
+You must  collect power daiseys in the field.  You have 30 seconds to collect as many as you can. Then you have a maximum of 5 seconds to return to the starting platform.   in this version there are  are no enemies, no walls.  Only one daisey will appear at a time.  If you fall of the edge of the platform there is no returning.  Good Luck. "
 
 [node name="notes" type="RichTextLabel" parent="."]
-offset_left = 733.0
-offset_top = 374.0
-offset_right = 1170.0
-offset_bottom = 615.0
+offset_left = 462.0
+offset_top = 304.0
+offset_right = 749.0
+offset_bottom = 379.0
 text = "Notes on Parameters:
-Heading is  from tank forward, not turret forward
-Speed vector  is in meters/second, where
-      \"y\" speed must be less than |10| to land safely
-Height vector is in meters, where
-     the  tank must not shoot within 5m of ground
-Location vector of landing site is in meters
-Distance to landing site in meters from tank position
-     the launch site is always (x,y,z)  = (0,0,0)
+The starting site is  (x,y,z)  = (0,0,0)
 
 "
 
